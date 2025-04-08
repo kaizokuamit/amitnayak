@@ -1,0 +1,170 @@
+/* === General Styles === */
+* {
+  transition: background 0.3s ease, color 0.3s ease;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  animation: fadeInPage 1s ease-in both;
+}
+
+@keyframes fadeInPage {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* === Hero Section === */
+.hero {
+  background-image: url('assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+.hero h1, .hero p, .hero img {
+  position: relative;
+  z-index: 1;
+}
+.tagline {
+  font-style: italic;
+  font-size: 1.1rem;
+}
+@media screen and (max-width: 600px) {
+  .tagline {
+    font-size: 1rem;
+  }
+}
+
+/* === Profile Picture === */
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 4px solid white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.6s ease, box-shadow 0.4s ease;
+}
+.profile-pic:hover {
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+/* === Grid Sections === */
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Responsive fallback: Stack in 2 columns on smaller screens */
+@media screen and (max-width: 900px) {
+  .grid-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .grid-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-block {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1s ease-out forwards;
+}
+.grid-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+.grid-block h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #2575fc;
+}
+.grid-block p a {
+  color: #6a11cb;
+  text-decoration: none;
+}
+.grid-block p a:hover {
+  text-decoration: underline;
+}
+
+/* === Grid Animation Delay === */
+.grid-block:nth-child(1) { animation-delay: 0.1s; }
+.grid-block:nth-child(2) { animation-delay: 0.2s; }
+.grid-block:nth-child(3) { animation-delay: 0.3s; }
+.grid-block:nth-child(4) { animation-delay: 0.4s; }
+.grid-block:nth-child(5) { animation-delay: 0.5s; }
+.grid-block:nth-child(6) { animation-delay: 0.6s; }
+.grid-block:nth-child(7) { animation-delay: 0.7s; }
+.grid-block:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #222;
+  color: white;
+  font-size: 0.9rem;
+}
+
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #fff; /* Or dark if no background */
+  font-weight: 700;
+}
+
+.tagline {
+  margin-top: 0.4rem;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #f0f0f0; /* Adjust to contrast with background */
+}
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+}
